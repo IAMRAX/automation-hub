@@ -1,5 +1,6 @@
 local gameScripts = {
     [807559471] = "https://github.com/richie0866/remote-spy/releases/latest/download/RemoteSpy.lua"
+    [95457676979352] = "https://github.com/richie0866/remote-spy/releases/latest/download/RemoteSpy.lua"
 }
 
 local scriptLink = gameScripts[game.GameId]
