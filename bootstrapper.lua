@@ -1,26 +1,15 @@
-local HttpService = game:GetService("HttpService")
-
--- Table of GameIds mapped to their script links
 local gameScripts = {
-    [8975568157] = "https://raw.githubusercontent.com/IAMRAX/automation-hub/refs/heads/main/scripts/Start%20Your%20Business.lua"
+    [807559471] = "https://github.com/richie0866/remote-spy/releases/latest/download/RemoteSpy.lua"
 }
 
-local currentGameId = game.GameId
-local scriptLink = gameScripts[currentGameId]
+local scriptLink = gameScripts[game.GameId]
 
 if scriptLink then
     local success, result = pcall(function()
-        local code = HttpService:GetAsync(scriptLink)
-        print("Fetched code:", code) -- Debug: see what was returned
-        return loadstring(code)()
+        return loadstring(game:HttpGetAsync(scriptLink))()
     end)
 
     if not success then
-        warn("❌ Failed to load script for GameId:", currentGameId)
-        warn("Error:", result)
-    else
-        print("✅ Script loaded successfully for GameId:", currentGameId)
+        warn("Failed to load script:", result)
     end
-else
-    print("ℹ️ No script link found for GameId:", currentGameId)
 end
