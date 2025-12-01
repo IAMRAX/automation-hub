@@ -10,7 +10,6 @@ local scriptLink = gameScripts[currentGameId]
 
 if scriptLink then
     local success, result = pcall(function()
-        -- Use HttpService:GetAsync to fetch the script text
         local code = HttpService:GetAsync(scriptLink)
         return loadstring(code)()
     end)
